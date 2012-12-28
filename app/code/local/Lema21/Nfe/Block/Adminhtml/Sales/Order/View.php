@@ -4,14 +4,23 @@ extends Mage_Adminhtml_Block_Sales_Order_View
 {
     public function  __construct()
     { 
-        $this->_addButton(
-            'call_to_send_nfe', array( 
-                'label'     => Mage::helper('Sales')->__('Emitir NF-e'), 
-                'onclick'   => 'setLocation(\'' . $this->getUrlSend() . '\')', 
-                'class'     => 'go' 
-                ), 0, 100, 'header', 'header'
-        ); 
-
+    	$states = explode(',',Mage::getStoreConfig('nfe/general/pedido_status'));
+    	if( ( in_array( $this->getOrder()->getState(), $states)) || !is_array($states)  ){
+    		$this->_addButton(
+    		            'call_to_send_nfe', array( 
+    		                'label'     => Mage::helper('Sales')->__('Emitir NF-e'), 
+    		                'onclick'   => 'setLocation(\'' . $this->getUrlSend() . '\')', 
+    		                'class'     => 'go' 
+    		), 0, 100, 'header', 'header'
+    		);
+    	} else {
+    		$this->_addButton(
+    		                    'call_to_send_nfe', array(
+    		                            'label'     => Mage::helper('Sales')->__('Emitir NF-e'),                            
+    		                            'class'     => 'disabled'
+    		), 0, 100, 'header', 'header'
+    		);
+    	}
         parent::__construct();  
     } 
 

@@ -2,7 +2,7 @@
 <config>
 	<modules>
 		<Lema21_Nfe>
-			<version>0.1.1</version>
+			<version>0.1.2</version>
 		</Lema21_Nfe>
 	</modules>
 	<global>
@@ -49,7 +49,22 @@
 			<adminhtml> 
 				<rewrite> 
 					<sales_order_view>Lema21_Nfe_Block_Adminhtml_Sales_Order_View</sales_order_view>
-				</rewrite> 
+				</rewrite>
+				<rewrite>
+                	<sales_order_grid>Lema21_Nfe_Block_Adminhtml_Sales_Order_Grid</sales_order_grid>
+            	</rewrite>
+            	
+            	<events>
+			        <core_block_abstract_prepare_layout_before>
+			            <observers>
+			                <nfe_core_block_abstract_prepare_layout_before>
+			                    <class>nfe/observer</class>
+			                    <method>addMassAction</method>
+			                </nfe_core_block_abstract_prepare_layout_before>
+			            </observers>
+			        </core_block_abstract_prepare_layout_before>
+			    </events>
+     
 			</adminhtml>
 		</blocks>
 	</global>
