@@ -8,7 +8,7 @@ class Lema21_Nfe_Model_Observer
                 && $block->getRequest()->getControllerName() == 'sales_order')
                 {
                         $block->addItem('nfe', array(
-                'label' => 'Gera‹o de Nf-e',
+                'label' => 'Geração de Nf-e',
                 'url' => Mage::app()->getStore()->getUrl('nfe/adminhtml_nfe/sendMass'),
                         ));
                 }
