@@ -14,5 +14,4 @@ Melhorias no módulo:
 - incluída opção para permitir a emissão de Nf-e por estado do(s) pedidos;
 - validação para produtos que não possuem os atributos requeridos
 - alteração das mensagens de sucesso e erro para exibir o número de incrementId do objeto order;
-
-* pendente corrigir o setup resource para incluir os atributos automaticamente no grupo default;
+- inclusão automática dos atributos de nfe no grupo default do magento como não obrigatórios
